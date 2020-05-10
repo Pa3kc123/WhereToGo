@@ -1,4 +1,4 @@
-package com.example.where_to_go
+package com.example.tmp
 
 import io.flutter.embedding.android.FlutterActivity
 
