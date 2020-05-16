@@ -42,13 +42,13 @@ class _LoginPageState extends State<LoginPage> {
             icon: const Icon(Icons.menu),
             onPressed: () => {
               Navigator.pushNamed(context, '/settings')
-            },
+            }
           )
-        ],
+        ]
       ),
       body: Builder(
-        builder: (BuildContext context) =>
-          Column(
+        builder: (BuildContext context) {
+          return Column(
             children: <Widget>[
               nameTextField,
               paswdTextField,
@@ -67,11 +67,12 @@ class _LoginPageState extends State<LoginPage> {
                 color: Theme.of(context).primaryColor,
                 child: const Text(
                   'Buton'
-                ),
+                )
               )
             ]
-          )
-        )
+          );
+        }
+      )
     );
   }
 }
@@ -88,8 +89,44 @@ class _SettingsPageState extends State<SettingsPage> {
       appBar: AppBar(
         title: const Text(
           'Settings'
-        ),
+        )
       ),
+      body: ListView.separated(
+        itemCount: 90,
+        itemBuilder: (BuildContext context, int index) {
+          return InkWell(
+            onTap: () {
+
+            },
+            child: Container(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'Name',
+                    style: TextStyle(
+                      fontSize: 20.0
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 5.0,
+                  ),
+                  const Text(
+                    'Description'
+                  )
+                ]
+              )
+            )
+          );
+        },
+        separatorBuilder: (BuildContext context, int index) {
+          return Container(
+            height: 2.0,
+            color: HSLColor.fromAHSL(1.0, (index * 4) % 359.0, 1.0, 0.5).toColor()
+          );
+        }
+      )
     );
   }
 }
