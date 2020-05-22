@@ -6,9 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:where_to_go/controllers.dart';
 
-import 'entities.dart';
-import 'widgets.dart';
-
 import 'main.dart' show TITLE;
 
 class LoginPage extends StatefulWidget {
@@ -117,74 +114,6 @@ class _LoginPageState extends State<LoginPage> {
             ]
           )
         ]
-      )
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  final Employee employee;
-
-  const HomePage({this.employee, Key key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Home Page'
-        )
-      ),
-      body: Column(
-        children: [
-          Text(
-            'Name = ${employee.name}'
-          ),
-          // Text(
-          //   'Token = ${employee.token}'
-          // )
-        ]
-      )
-    );
-  }
-}
-
-class SettingsPage extends StatefulWidget {
-  @override
-  _SettingsPageState createState() => _SettingsPageState();
-}
-
-class _SettingsPageState extends State<SettingsPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Settings'
-        )
-      ),
-      body: ListView.separated(
-        itemCount: 2,
-        itemBuilder: (context, index) {
-          if (index % 2 == 0) {
-            return ToggleOption(
-              title: 'Toggle option title',
-              description: 'Toggle option desc',
-              onTap: (enabled) {
-
-              }
-            );
-          } else {
-            return ChooseOption(
-              title: 'Choose option title',
-              description: 'Choose option desc',
-              onTap: () {
-
-              }
-            );
-          }
-        },
-        separatorBuilder: (context, index) => Divider()
       )
     );
   }
