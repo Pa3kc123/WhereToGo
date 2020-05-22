@@ -1,13 +1,28 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'pages.dart';
 import 'widgets.dart';
 
 const String TITLE = 'Where To Go';
+final List<Option> options = <Option>[
+  ToggleOption(
+    title: 'ToggleOptionName1',
+    description: 'ToggleOptionDescription1',
+    onTap: (enabled) {
 
-void main() {
-  runApp(MyApp());
-}
+    }
+  ),
+  ChooseOption(
+    title: 'ChooseOptionName1',
+    description: 'ChooseOptionDescription1',
+    onTap: () {
+
+    }
+  )
+];
+
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -20,8 +35,8 @@ class MyApp extends StatelessWidget {
         darkTheme: ThemeData.dark(),
         themeMode: ThemeMode.system,
         routes: <String, WidgetBuilder>{
-          '/settings': (BuildContext context) => SettingsPage(),
-          '/login': (BuildContext context) => LoginPage()
+          '/settings': (context) => SettingsPage(),
+          '/login': (context) => LoginPage()
         },
         home: LoginPage(),
       )
